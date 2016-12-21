@@ -33,10 +33,10 @@ void __List_Solid3d_allUpdate(List_Solid3d *this_) {
 void __List_Solid3d_allShow(List_Solid3d *this_) {
 	
 	
-//	for(int i = 0; i < this_->length; i++) {
-//		printf("allshow : %d\n", i);
-//		this_->solid_list[i].draw(&(this_->solid_list[i]));
-//	}
+	for(int i = 0; i < this_->length; i++) {
+		printf("allshow : %d\n", i);
+		this_->solid_list[i].draw(&(this_->solid_list[i]));
+	}
 }
 
 
