@@ -111,16 +111,16 @@ void __Solid3D_rotate(Solid3D *this_, double r) {
 
 
 void __Solid3D_getAsGLDouble(Solid3D *this_, GLdouble *gldouble) {
-//	GLdouble vertex[SOLID3D_VECTORS_LENGTH][3];
-//	for(int i = 0; i < this_->vertex; i++) {
-//		//GLdouble gldoubleVec_[3];
-//
-//		for(int j = 0; j < 3; j++)
-//			vertex[i][j] = this_->vectors[i].vec[j];
-//	}
-//
-//	gldouble = vertex;
-//	printf("tmp");
-//	//gldouble = vertex;
+	GLdouble vertex[SOLID3D_VECTORS_LENGTH][3];
+	for(int i = 0; i < this_->vertex; i++) {
+		//GLdouble gldoubleVec_[3];
+
+		for(int j = 0; j < 3; j++)
+			vertex[i][j] = this_->vectors[i].vec[j];
+	}
+
+	gldouble = vertex;
+	printf("tmp");
+	//gldouble = vertex;
 
 }
