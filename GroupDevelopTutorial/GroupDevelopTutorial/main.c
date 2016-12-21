@@ -36,11 +36,11 @@ void fpsHandler() {
 //フレームレート毎処理
 void modelIdleFunc() {
 	
-//	glutPostRedisplay(); //glut - 再描画関数
-//	
-//	fpsHandler();
-//	
-//	//update variable
+	glutPostRedisplay(); //glut - 再描画関数
+	
+	fpsHandler();
+	
+	//update variable
 	
 }
 
