@@ -105,8 +105,8 @@ void __Solid3D_setMoveVec(Solid3D *this_, Vector3 vec) {
 
 
 void __Solid3D_rotate(Solid3D *this_, double r) {
-//	for(int i = 0; i < this_->vertex; i++)
-//		this_->vectors[i].rotate(this_, r);
+	for(int i = 0; i < this_->vertex; i++)
+	this_->vectors[i].rotate(this_, r);
 }
 
 
