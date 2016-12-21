@@ -11,49 +11,49 @@
 #include "Solid3D.h"
 
 Solid3D Solid3D_init_Cube(Vector3 initPos, Vector3 color, double w, double h, double d) {
-//	Solid3D solid;
-//
-//	solid.color = color;
-//
-//	solid.vertex = 8;
-//	solid.edgeNum = 12;
-//
-//	solid.vectors[0] = Vector3_init(0.0, 0.0, 0.0);
-//	solid.vectors[1] = Vector3_init(w  , 0.0, 0.0);
-//	solid.vectors[2] = Vector3_init(w  , h  , 0.0);
-//	solid.vectors[3] = Vector3_init(0.0, h  , 0.0);
-//	solid.vectors[4] = Vector3_init(0.0, 0.0, d  );
-//	solid.vectors[5] = Vector3_init(h  , 0.0, d  );
-//	solid.vectors[6] = Vector3_init(h  , h  , d  );
-//	solid.vectors[7] = Vector3_init(0.0, h  , d  );
-//
-//	int tmp_edge[][2] = {
-//		{ 0, 1 },
-//		{ 1, 2 },
-//		{ 2, 3 },
-//		{ 3, 0 },
-//		{ 4, 5 },
-//		{ 5, 6 },
-//		{ 6, 7 },
-//		{ 7, 4 },
-//		{ 0, 4 },
-//		{ 1, 5 },
-//		{ 2, 6 },
-//		{ 3, 7 }
-//	};
-//
-//	for(int i = 0; i < solid.edgeNum; i++)
-//		for(int j = 0; j < 2; j++) solid.edge[i][j] = tmp_edge[i][j];
-//
-//	solid.moveVec = Vector3_init(0, 0, 0);
-//	solid.pos = initPos;
-//	solid.update = __Solid3D_update;
-//	solid.draw = __Solid3D_draw;
-//	solid.setMoveVec = __Solid3D_setMoveVec;
-//	solid.rotate = __Solid3D_rotate;
-//	solid.getAsGLDouble = __Solid3D_getAsGLDouble;
-//
-//	return solid;
+	Solid3D solid;
+
+	solid.color = color;
+
+	solid.vertex = 8;
+	solid.edgeNum = 12;
+
+	solid.vectors[0] = Vector3_init(0.0, 0.0, 0.0);
+	solid.vectors[1] = Vector3_init(w  , 0.0, 0.0);
+	solid.vectors[2] = Vector3_init(w  , h  , 0.0);
+	solid.vectors[3] = Vector3_init(0.0, h  , 0.0);
+	solid.vectors[4] = Vector3_init(0.0, 0.0, d  );
+	solid.vectors[5] = Vector3_init(h  , 0.0, d  );
+	solid.vectors[6] = Vector3_init(h  , h  , d  );
+	solid.vectors[7] = Vector3_init(0.0, h  , d  );
+
+	int tmp_edge[][2] = {
+		{ 0, 1 },
+		{ 1, 2 },
+		{ 2, 3 },
+		{ 3, 0 },
+		{ 4, 5 },
+		{ 5, 6 },
+		{ 6, 7 },
+		{ 7, 4 },
+		{ 0, 4 },
+		{ 1, 5 },
+		{ 2, 6 },
+		{ 3, 7 }
+	};
+
+	for(int i = 0; i < solid.edgeNum; i++)
+		for(int j = 0; j < 2; j++) solid.edge[i][j] = tmp_edge[i][j];
+
+	solid.moveVec = Vector3_init(0, 0, 0);
+	solid.pos = initPos;
+	solid.update = __Solid3D_update;
+	solid.draw = __Solid3D_draw;
+	solid.setMoveVec = __Solid3D_setMoveVec;
+	solid.rotate = __Solid3D_rotate;
+	solid.getAsGLDouble = __Solid3D_getAsGLDouble;
+
+	return solid;
 
 }
 
