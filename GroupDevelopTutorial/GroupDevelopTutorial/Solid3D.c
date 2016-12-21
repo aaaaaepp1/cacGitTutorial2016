@@ -60,10 +60,10 @@ Solid3D Solid3D_init_Cube(Vector3 initPos, Vector3 color, double w, double h, do
 
 void __Solid3D_update(Solid3D *this_) {
 
-//	//速度を適用
-//	this_->pos.plusWith(this_, this_->moveVec);
-//
-//	//摩擦を計算
+	//速度を適用
+	this_->pos.plusWith(this_, this_->moveVec);
+
+	//摩擦を計算
 
 
 }
