@@ -31,8 +31,8 @@ void __Vector3_plusWith(Vector3 *this_, Vector3 vec) {
 }
 
 void __Vector3_multiWith(Vector3 *this_, Vector3 vec) {
-  //	for(int i = 0; i < 3; i++)
-//		this_->vec[i] *= vec.vec[i];
+  	for(int i = 0; i < 3; i++)
+		this_->vec[i] *= vec.vec[i];
 }
 
 void __Vector3_copy(Vector3 *this_, Vector3 vec) {
