@@ -41,29 +41,29 @@ void __Vector3_copy(Vector3 *this_, Vector3 vec) {
 }
 
 void __Vector3_rotate(Vector3 *this_, double r) {
-//	int i, j;
-//	double rotate[3][3];
-//	rotate[0][0] = cos(r);
-//	rotate[1][0] = 0;
-//	rotate[2][0] = sin(r);
-//	rotate[0][1] = 0;
-//	rotate[1][1] = 1;
-//	rotate[2][1] = 0;
-//	rotate[0][2] = -sin(r);
-//	rotate[1][2] = 0;
-//	rotate[2][2] = cos(r);
-//	
-//	Vector3 ans = Vector3_init(0.0, 0.0, 0.0);
-//	
-//	for(i = 0; i < 3; i++) {
-//		double buff = 0.0;
-//		for(j = 0; j < 3; j++) {
-//			buff += rotate[j][i] * this_->vec[j];
-//		}
-//		ans.vec[i] = buff;
-//	}
-//	
-//	this_->copy(this_, ans);
+	int i, j;
+	double rotate[3][3];
+	rotate[0][0] = cos(r);
+	rotate[1][0] = 0;
+	rotate[2][0] = sin(r);
+	rotate[0][1] = 0;
+	rotate[1][1] = 1;
+	rotate[2][1] = 0;
+	rotate[0][2] = -sin(r);
+	rotate[1][2] = 0;
+	rotate[2][2] = cos(r);
+	
+	Vector3 ans = Vector3_init(0.0, 0.0, 0.0);
+	
+	for(i = 0; i < 3; i++) {
+		double buff = 0.0;
+		for(j = 0; j < 3; j++) {
+			buff += rotate[j][i] * this_->vec[j];
+		}
+		ans.vec[i] = buff;
+	}
+	
+	this_->copy(this_, ans);
 	
 }
 
