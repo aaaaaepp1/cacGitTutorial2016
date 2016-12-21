@@ -48,14 +48,14 @@ void displayHandler() {
 
 void displayReshapeFunc(int w, int h) {
 
-//	glViewport(0, 0, w, h); //ビューポート設定
-//	glMatrixMode(GL_PROJECTION);
-//	glLoadIdentity();
-//	gluPerspective(30.0, (double)w / (double)h, 1.0, 100.0);
-//	glMatrixMode(GL_MODELVIEW);
-//
-//	updatingWindowWidth = &w;
-//	updatingWindowHeight = &h;
+	glViewport(0, 0, w, h); //ビューポート設定
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluPerspective(30.0, (double)w / (double)h, 1.0, 100.0);
+	glMatrixMode(GL_MODELVIEW);
+
+	updatingWindowWidth = &w;
+	updatingWindowHeight = &h;
 
 	return ;
 }
