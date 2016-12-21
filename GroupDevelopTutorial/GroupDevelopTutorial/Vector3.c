@@ -4,7 +4,7 @@
 //
 //  Created by 岡本　直樹 on 2016/12/21.
 //  Copyright © 2016年 Naoki Okamoto. All rights reserved.
-//
+///
 
 
 #include "Vector3.h"
