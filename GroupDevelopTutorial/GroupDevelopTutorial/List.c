@@ -11,15 +11,15 @@
 
 
 List_Solid3d List_Solid3d_init() {
-//	List_Solid3d list;
-//	list.length = 0;
-//	list.allUpdate = __List_Solid3d_allUpdate;
-//	list.allShow = __List_Solid3d_allShow;
-//	list.at = __List_Solid3d_at;
-//	list.add = __List_Solid3d_add;
-//	list.isEmpty = __List_Solid3d_isEmpty;
-//	
-//	return list;
+	List_Solid3d list;
+	list.length = 0;
+	list.allUpdate = __List_Solid3d_allUpdate;
+	list.allShow = __List_Solid3d_allShow;
+	list.at = __List_Solid3d_at;
+	list.add = __List_Solid3d_add;
+    list.isEmpty = __List_Solid3d_isEmpty;
+	
+	return list;
 }
 
 
