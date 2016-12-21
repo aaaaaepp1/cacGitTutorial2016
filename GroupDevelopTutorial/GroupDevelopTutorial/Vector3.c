@@ -12,17 +12,17 @@
 
 
 Vector3 Vector3_init(double x, double y, double z) {
-//	Vector3 vec;
-//	vec.vec[0] = x;
-//	vec.vec[1] = y;
-//	vec.vec[2] = z;
-//	vec.plusWith = __Vector3_plusWith;
-//	vec.multiWith = __Vector3_multiWith;
-//	vec.copy = __Vector3_copy;
-//	vec.rotate = __Vector3_rotate;
+	Vector3 vec;
+	vec.vec[0] = x;
+	vec.vec[1] = y;
+	vec.vec[2] = z;
+	vec.plusWith = __Vector3_plusWith;
+	vec.multiWith = __Vector3_multiWith;
+	vec.copy = __Vector3_copy;
+	vec.rotate = __Vector3_rotate;
 	
 	
-//	return vec;
+	return vec;
 }
 
 void __Vector3_plusWith(Vector3 *this_, Vector3 vec) {
