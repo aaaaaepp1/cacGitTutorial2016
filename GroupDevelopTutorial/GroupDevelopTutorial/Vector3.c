@@ -69,8 +69,8 @@ void __Vector3_rotate(Vector3 *this_, double r) {
 
 
 void __Vector3_getAsGLdouble(Vector3 *this_, GLdouble *gldouble) {
-//	for(int i = 0; i < 3; i++)
-//		*(gldouble+i) = this_->vec[i];
+	for(int i = 0; i < 3; i++)
+		*(gldouble+i) = this_->vec[i];
 	
 	
 }
