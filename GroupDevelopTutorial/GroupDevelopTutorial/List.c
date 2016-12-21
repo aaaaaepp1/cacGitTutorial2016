@@ -24,9 +24,9 @@ List_Solid3d List_Solid3d_init() {
 
 
 void __List_Solid3d_allUpdate(List_Solid3d *this_) {
-//	for(int i = 0; i < this_->length; i++) {
-//		this_->solid_list[i].update(&(this_->solid_list[i]));
-//	}
+	for(int i = 0; i < this_->length; i++) {
+		this_->solid_list[i].update(&(this_->solid_list[i]));
+	}
 }
 
 
