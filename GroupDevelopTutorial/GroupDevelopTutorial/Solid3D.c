@@ -99,7 +99,7 @@ void __Solid3D_draw(Solid3D *this_) {
 
 
 void __Solid3D_setMoveVec(Solid3D *this_, Vector3 vec) {
-//	this_->moveVec.plusWith(this_, vec);
+	this_->moveVec.plusWith(this_, vec);
 }
 
 
