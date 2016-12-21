@@ -48,9 +48,9 @@ void modelIdleFunc() {
 //初期化処理
 int init() {
 	
-//	glClearColor(0.4, 0.7, 0.95, 1.0);
-//	glutIdleFunc(modelIdleFunc); //ループ関数
-//	glEnable(GL_DEPTH_TEST);//デプスバッファを使用
+	glClearColor(0.4, 0.7, 0.95, 1.0);
+	glutIdleFunc(modelIdleFunc); //ループ関数
+	glEnable(GL_DEPTH_TEST);//デプスバッファを使用
 	
 	
 	
@@ -59,7 +59,7 @@ int init() {
 }
 
 
-//
+
 int main(int argc, const char * argv[]) {
 	
 //	//ウィンドウサイズ初期化
