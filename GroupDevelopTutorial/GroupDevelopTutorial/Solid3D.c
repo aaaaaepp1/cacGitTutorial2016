@@ -76,23 +76,23 @@ void __Solid3D_draw(Solid3D *this_) {
 
 
 
-//	GLdouble vertex[SOLID3D_VECTORS_LENGTH][3];
-//	//this_->getAsGLDouble(this_, vertex);
-//	for(int i = 0; i < SOLID3D_VECTORS_LENGTH; i++) {
-//		for(int j = 0; j < 3; j++)
-//			vertex[i][j] = this_->vectors[i].vec[j]+this_->moveVec.vec[j];
-//	}
-//
-//	//
-//	glColor3d(this_->color.vec[0],
-//			  this_->color.vec[1],
-//			  this_->color.vec[2]);
-//	glBegin(GL_LINES);
-//	for (int i = 0; i < this_->edgeNum; i++) {
-//		glVertex3dv(vertex[this_->edge[i][0]]);
-//		glVertex3dv(vertex[this_->edge[i][1]]);
-//	}
-//	glEnd();
+	GLdouble vertex[SOLID3D_VECTORS_LENGTH][3];
+	//this_->getAsGLDouble(this_, vertex);
+	for(int i = 0; i < SOLID3D_VECTORS_LENGTH; i++) {
+		for(int j = 0; j < 3; j++)
+			vertex[i][j] = this_->vectors[i].vec[j]+this_->moveVec.vec[j];
+	}
+
+	//
+	glColor3d(this_->color.vec[0],
+			  this_->color.vec[1],
+			  this_->color.vec[2]);
+	glBegin(GL_LINES);
+	for (int i = 0; i < this_->edgeNum; i++) {
+		glVertex3dv(vertex[this_->edge[i][0]]);
+		glVertex3dv(vertex[this_->edge[i][1]]);
+	}
+	glEnd();
 
 }
 
