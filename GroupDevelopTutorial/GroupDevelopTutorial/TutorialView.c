@@ -24,23 +24,23 @@ void tutorialView_initVariables(int *windowWidth, int *windowHeight, List_Solid3
 
 
 void displayHandler() {
-//	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //glut -
-//	glLoadIdentity(); //glut -
-//
-//
-//	gluLookAt(15.0, 5.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);//
-//
-//
-//	//描画
-//	TutorialView_modelList->allShow(TutorialView_modelList);
-//
-//
-//
-//
-//	glFlush(); //描画
-//
-//
-//
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //glut -
+	glLoadIdentity(); //glut -
+
+
+	gluLookAt(15.0, 5.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);//
+
+
+	//描画
+	TutorialView_modelList->allShow(TutorialView_modelList);
+
+
+
+
+	glFlush(); //描画
+
+
+
 	return ;
 }
 
