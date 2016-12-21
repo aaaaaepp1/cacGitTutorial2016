@@ -41,10 +41,10 @@ void __List_Solid3d_allShow(List_Solid3d *this_) {
 
 
 Solid3D __List_Solid3d_at(List_Solid3d *this_, int index) {
-//	if(index > this_->length)
-//		return Solid3D_init_Cube(Vector3_init(0.0, 0.0, 0.0), Vector3_init(0, 0, 0), 0, 0, 0);
-//	
-//	return this_->solid_list[index];
+	if(index > this_->length)
+		return Solid3D_init_Cube(Vector3_init(0.0, 0.0, 0.0), Vector3_init(0, 0, 0), 0, 0, 0);
+	
+	return this_->solid_list[index];
 }
 
 
