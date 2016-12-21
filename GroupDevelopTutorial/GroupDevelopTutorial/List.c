@@ -51,12 +51,12 @@ Solid3D __List_Solid3d_at(List_Solid3d *this_, int index) {
 
 int __List_Solid3d_add(List_Solid3d *this_, Solid3D element) {
 	
-//	if(this_->length >= SOLID3D_LENGTH_MAX)
-//		return 1;
-//	
-//	this_->solid_list[this_->length] = element;
-//	this_->length += 1;
-//	
+	if(this_->length >= SOLID3D_LENGTH_MAX)
+		return 1;
+	
+	this_->solid_list[this_->length] = element;
+	this_->length += 1;
+	
 	return 0;
 }
 
