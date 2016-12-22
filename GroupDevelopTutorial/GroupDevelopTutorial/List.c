@@ -17,7 +17,7 @@ List_Solid3d List_Solid3d_init() {
 	list.allShow = __List_Solid3d_allShow;
 	list.at = __List_Solid3d_at;
 	list.add = __List_Solid3d_add;
-    list.isEmpty = __List_Solid3d_isEmpty;
+	list.isEmpty = __List_Solid3d_isEmpty;
 	
 	return list;
 }
@@ -31,20 +31,19 @@ void __List_Solid3d_allUpdate(List_Solid3d *this_) {
 
 
 void __List_Solid3d_allShow(List_Solid3d *this_) {
-	
-	
 	for(int i = 0; i < this_->length; i++) {
-		printf("allshow : %d\n", i);
 		this_->solid_list[i].draw(&(this_->solid_list[i]));
 	}
 }
 
 
-Solid3D __List_Solid3d_at(List_Solid3d *this_, int index) {
-	if(index > this_->length)
-		return Solid3D_init_Cube(Vector3_init(0.0, 0.0, 0.0), Vector3_init(0, 0, 0), 0, 0, 0);
+Solid3D *__List_Solid3d_at(List_Solid3d *this_, int index) {
+	if(index > this_->length) {
+		Solid3D tmp = Solid3D_init_Cube(Vector3_init(0.0, 0.0, 0.0), Vector3_init(0, 0, 0), 0, 0, 0);
+		return &tmp;
+	}
 	
-	return this_->solid_list[index];
+	return &(this_->solid_list[index]);
 }
 
 
@@ -62,7 +61,5 @@ int __List_Solid3d_add(List_Solid3d *this_, Solid3D element) {
 
 
 int __List_Solid3d_isEmpty(List_Solid3d *this_) {
-//	return this_->length == 0;
-	
-	return 0;//エラー回避
+	return this_->length == 0;
 }
