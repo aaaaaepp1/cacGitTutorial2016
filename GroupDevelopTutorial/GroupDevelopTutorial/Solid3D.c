@@ -4,7 +4,7 @@
 //
 //  Created by 岡本　直樹 on 2016/12/21.
 //  Copyright © 2016年 Naoki Okamoto. All rights reserved.
-///
+//
 
 
 
@@ -12,12 +12,13 @@
 
 Solid3D Solid3D_init_Cube(Vector3 initPos, Vector3 color, double w, double h, double d) {
 	Solid3D solid;
-
+	
 	solid.color = color;
-
+	
 	solid.vertex = 8;
 	solid.edgeNum = 12;
-
+	solid.rotateVec = 0.0;
+	
 	solid.vectors[0] = Vector3_init(0.0, 0.0, 0.0);
 	solid.vectors[1] = Vector3_init(w  , 0.0, 0.0);
 	solid.vectors[2] = Vector3_init(w  , h  , 0.0);
@@ -26,7 +27,7 @@ Solid3D Solid3D_init_Cube(Vector3 initPos, Vector3 color, double w, double h, do
 	solid.vectors[5] = Vector3_init(h  , 0.0, d  );
 	solid.vectors[6] = Vector3_init(h  , h  , d  );
 	solid.vectors[7] = Vector3_init(0.0, h  , d  );
-
+	
 	int tmp_edge[][2] = {
 		{ 0, 1 },
 		{ 1, 2 },
@@ -41,48 +42,88 @@ Solid3D Solid3D_init_Cube(Vector3 initPos, Vector3 color, double w, double h, do
 		{ 2, 6 },
 		{ 3, 7 }
 	};
-
+	
 	for(int i = 0; i < solid.edgeNum; i++)
 		for(int j = 0; j < 2; j++) solid.edge[i][j] = tmp_edge[i][j];
-
+	
 	solid.moveVec = Vector3_init(0, 0, 0);
 	solid.pos = initPos;
 	solid.update = __Solid3D_update;
 	solid.draw = __Solid3D_draw;
 	solid.setMoveVec = __Solid3D_setMoveVec;
+	solid.setRotate = __Solid3D_setRotateVec;
 	solid.rotate = __Solid3D_rotate;
 	solid.getAsGLDouble = __Solid3D_getAsGLDouble;
-
+	
 	return solid;
-
+	
 }
 
 
 void __Solid3D_update(Solid3D *this_) {
-
+	
 	//速度を適用
-	this_->pos.plusWith(this_, this_->moveVec);
-
+	this_->pos.plusWith(&(this_->pos), this_->moveVec);
+	printf("setted rotatevec : %.2f\n", this_->rotateVec);
+	
 	//摩擦を計算
-
-
+	
+	
 }
 
 
+//debug
+//debug
+GLdouble vertex[][3] = {
+	{ 0.0, 0.0, 0.0 },
+	{ 1.0, 0.0, 0.0 },
+	{ 1.0, 1.0, 0.0 },
+	{ 0.0, 1.0, 0.0 },
+	{ 0.0, 0.0, 1.0 },
+	{ 1.0, 0.0, 1.0 },
+	{ 1.0, 1.0, 1.0 },
+	{ 0.0, 1.0, 1.0 }
+};
+
+int edge[][2] = {
+	{ 0, 1 },
+	{ 1, 2 },
+	{ 2, 3 },
+	{ 3, 0 },
+	{ 4, 5 },
+	{ 5, 6 },
+	{ 6, 7 },
+	{ 7, 4 },
+	{ 0, 4 },
+	{ 1, 5 },
+	{ 2, 6 },
+	{ 3, 7 }
+};
+
 
 void __Solid3D_draw(Solid3D *this_) {
-
-
-
-
-
+	
+	
+//	glColor3d(0.0, 0.0, 0.0);
+//	glBegin(GL_LINES);
+//	for (int i = 0; i < 12; ++i) {
+//		glVertex3dv(vertex[edge[i][0]]);
+//		glVertex3dv(vertex[edge[i][1]]);
+//	}
+//	glEnd();
+	
+	//頂点を回転
+	this_->rotate(this_, this_->rotateVec);
+	
 	GLdouble vertex[SOLID3D_VECTORS_LENGTH][3];
 	//this_->getAsGLDouble(this_, vertex);
 	for(int i = 0; i < SOLID3D_VECTORS_LENGTH; i++) {
 		for(int j = 0; j < 3; j++)
-			vertex[i][j] = this_->vectors[i].vec[j]+this_->moveVec.vec[j];
+			vertex[i][j] = this_->vectors[i].vec[j]+this_->pos.vec[j];
 	}
-
+	
+	//printf("pos : %.2f, %.2f, %.2f\n", this_->pos.vec[0], this_->pos.vec[1], this_->pos.vec[2]);
+	
 	//
 	glColor3d(this_->color.vec[0],
 			  this_->color.vec[1],
@@ -93,20 +134,25 @@ void __Solid3D_draw(Solid3D *this_) {
 		glVertex3dv(vertex[this_->edge[i][1]]);
 	}
 	glEnd();
-
+	
 }
 
 
 
 void __Solid3D_setMoveVec(Solid3D *this_, Vector3 vec) {
-	this_->moveVec.plusWith(this_, vec);
+	this_->moveVec.plusWith(&(this_->moveVec), vec);
+	//printf("%.2f, %.2f, %.2f\n", this_->moveVec.vec[0], this_->moveVec.vec[1], this_->moveVec.vec[2]);
 }
 
+
+void __Solid3D_setRotateVec(Solid3D *this_, double r) {
+	this_->rotateVec += r;
+}
 
 
 void __Solid3D_rotate(Solid3D *this_, double r) {
 	for(int i = 0; i < this_->vertex; i++)
-	this_->vectors[i].rotate(this_, r);
+		this_->vectors[i].rotate(&(this_->vectors[i]), r);
 }
 
 
@@ -114,13 +160,13 @@ void __Solid3D_getAsGLDouble(Solid3D *this_, GLdouble *gldouble) {
 	GLdouble vertex[SOLID3D_VECTORS_LENGTH][3];
 	for(int i = 0; i < this_->vertex; i++) {
 		//GLdouble gldoubleVec_[3];
-
+		
 		for(int j = 0; j < 3; j++)
 			vertex[i][j] = this_->vectors[i].vec[j];
 	}
-
+	
 	gldouble = vertex;
-	printf("tmp");
+	//printf("tmp");
 	//gldouble = vertex;
-
+	
 }

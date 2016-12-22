@@ -4,7 +4,7 @@
 //
 //  Created by 岡本　直樹 on 2016/12/21.
 //  Copyright © 2016年 Naoki Okamoto. All rights reserved.
-///
+//
 
 
 #include "Vector3.h"
@@ -31,7 +31,7 @@ void __Vector3_plusWith(Vector3 *this_, Vector3 vec) {
 }
 
 void __Vector3_multiWith(Vector3 *this_, Vector3 vec) {
-  	for(int i = 0; i < 3; i++)
+	for(int i = 0; i < 3; i++)
 		this_->vec[i] *= vec.vec[i];
 }
 
