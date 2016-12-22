@@ -22,12 +22,14 @@ typedef struct {
 	Vector3 vectors[SOLID3D_VECTORS_LENGTH];
 	int edgeNum;
 	int edge[SOLID3D_EDGE_LENGTH][2];
+	double rotateVec;
 	Vector3 moveVec;
 	Vector3 pos;
 	Vector3 color;
 	void (*update)();//fpsHandlerで呼ばれるやーつ
 	void (*draw)();//描画メソッド
 	void (*setMoveVec)();
+	void (*setRotate)();
 	void (*rotate)();
 	void (*getAsGLDouble)();
 } Solid3D;
@@ -37,6 +39,7 @@ Solid3D Solid3D_init_Cube(Vector3 initPos, Vector3 color, double w, double h, do
 void __Solid3D_update(Solid3D *this_);
 void __Solid3D_draw(Solid3D *this_);
 void __Solid3D_setMoveVec(Solid3D *this_, Vector3 vec);
+void __Solid3D_setRotateVec(Solid3D *this_, double r);
 void __Solid3D_rotate(Solid3D *this_, double r);
 void __Solid3D_getAsGLDouble(Solid3D *this_, GLdouble *gldouble);
 

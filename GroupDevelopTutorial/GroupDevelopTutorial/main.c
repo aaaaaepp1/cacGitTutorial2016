@@ -25,7 +25,7 @@ int WindowWidth, WindowHeight;
 void fpsHandler() {
 	for(int i = 0; i < model_list.length; i++) {
 		Solid3D *tmp = model_list.at(&model_list, i);
-		tmp->setMoveVec(tmp, Vector3_init(0.1, 0, 0));
+		tmp->setRotate(tmp, 0.01);
 	}
 	model_list.allUpdate(&model_list);
 	
